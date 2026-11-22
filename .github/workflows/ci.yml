@@ -1,0 +1,15 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install jolt
+        run: curl -sL https://raw.githubusercontent.com/jolt-lang/jolt/main/install | bash
+      - name: Load + language registry smoke
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          JOLT_SKIP_MIN_VERSION=1 jolt run test/jolt/check_test.clj
+      # Boot tests need /dev/kvm + libkrun (self-hosted runner with KVM):
+      #   jolt run test/jolt/sandbox_test.clj
