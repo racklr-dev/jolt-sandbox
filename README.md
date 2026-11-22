@@ -5,11 +5,11 @@
 A convenience layer over [jolt-microvm](https://github.com/racklr-dev/jolt-microvm)
 for running code and commands in a microVM sandbox.
 
-Two shapes:
+Two modes:
 
-- **one-shot** — `run` / `lang`: cold-boot any image (including distroless) into
+- **one-shot**: `run` / `lang`: cold-boot any image (including distroless) into
   a command, return `{:stdout :stderr :exit}`. Good for isolated code execution.
-- **warm** — `with-session` / pool: keep an alpine VM booted across many `exec`
+- **warm**: `with-session` / pool: keep an alpine VM booted across many `exec`
   calls. Good for agents and long-running work.
 
 ## Use
