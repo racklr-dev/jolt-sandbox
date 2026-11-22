@@ -12,13 +12,13 @@
 ;; -- language registry --------------------------------------------------------
 (defonce ^:private languages
   (atom
-   {:python        {:image "gcr.io/distroless/python3-debian12:latest"
+   {:python        {:image "gcr.io/distroless/python3-debian13:latest"
                     :cmd (fn [code] ["/usr/bin/python3" "-c" code])}
     :python-alpine {:image "alpine:3.20"
                     :packages ["python3"]
                     :cmd (fn [code] ["/usr/bin/python3" "-c" code])}
-    :node          {:image "gcr.io/distroless/nodejs20-debian12:latest"
-                    :cmd (fn [code] ["/usr/bin/node" "-e" code])}
+    :node          {:image "gcr.io/distroless/nodejs22-debian13:latest"
+                    :cmd (fn [code] ["/nodejs/bin/node" "-e" code])}
     :sh            {:image "alpine:3.20"
                     :cmd (fn [code] ["/bin/sh" "-c" code])}}))
 

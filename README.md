@@ -27,8 +27,8 @@ Two shapes:
 
 (sb/lang :sh "echo hello")             ; alpine /bin/sh
 (sb/lang :python-alpine "print(43)")   ; alpine + python3 (auto-seeded)
-(sb/run {:image "gcr.io/distroless/nodejs20-debian12:latest"
-         :cmd ["/usr/bin/node" "-e" "console.log(1+1)"]})
+(sb/run {:image "gcr.io/distroless/nodejs22-debian13:latest"
+         :cmd ["/nodejs/bin/node" "-e" "console.log(1+1)"]})
 
 ;; warm session
 (sb/with-session [v {:image "alpine:3.20" :packages ["python3"] :project-dir "..."}]
