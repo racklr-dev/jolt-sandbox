@@ -1,5 +1,7 @@
 # jolt-sandbox
 
+[![tests](https://github.com/racklr-dev/jolt-sandbox/actions/workflows/ci.yml/badge.svg)](https://github.com/racklr-dev/jolt-sandbox/actions/workflows/ci.yml)
+
 A convenience layer over [jolt-microvm](https://github.com/racklr-dev/jolt-microvm)
 for running code and commands in a microVM sandbox.
 

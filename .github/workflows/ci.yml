@@ -5,11 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install jolt
-        run: curl -sL https://raw.githubusercontent.com/jolt-lang/jolt/main/install | bash
+      - name: Install jolt (pinned)
+        run: curl -sL https://raw.githubusercontent.com/jolt-lang/jolt/main/install | bash -s -- --version 0.8.28
       - name: Load + language registry smoke
         run: |
           export PATH="$HOME/.local/bin:$PATH"
-          JOLT_SKIP_MIN_VERSION=1 jolt run test/jolt/check_test.clj
-      # Boot tests need /dev/kvm + libkrun (self-hosted runner with KVM):
+          jolt test
+      # Boot tests need /dev/kvm + a libkrun 2.0 build; run on a self-hosted
+      # runner with KVM:
       #   jolt run test/jolt/sandbox_test.clj

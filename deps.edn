@@ -1,4 +1,10 @@
-{:paths ["src"]
+{;; jolt-sandbox is a convenience layer over jolt-microvm, so it floors at the
+ ;; same 0.8.28 as the rest of the stack.
+ :jolt/min-version "0.8.28"
+
+ :paths ["src"]
  :deps {racklr-dev/jolt-microvm
         {:git/url "https://github.com/racklr-dev/jolt-microvm"
-         :git/sha "3700db184aeafac60f274a437f89bf03909e7247"}}}
+         :git/sha "4b5d109eb02c26f43adf84959a05b6ed940b9501"}}
+
+ :tasks {test "jolt run test/jolt/check_test.clj"}}
