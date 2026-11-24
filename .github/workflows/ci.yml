@@ -37,6 +37,7 @@ jobs:
           cd "$ws_msys"
           curl -sL -o jolt.zip https://github.com/jolt-lang/jolt/releases/download/v0.8.28/jolt-v0.8.28-x86_64-windows.zip
           unzip -q jolt.zip
+          echo "$(cygpath -w "$ws_msys/jolt-v0.8.28-x86_64-windows")" >> "$GITHUB_PATH"
       - name: Test (unix)
         if: runner.os != 'Windows'
         run: |
