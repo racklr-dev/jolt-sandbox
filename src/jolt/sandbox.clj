@@ -101,9 +101,12 @@
     (try (f v) (finally (release pool v)))))
 
 (defn pool-exec
-  "Run a command on the pool's warm VM. Returns {:stdout :stderr :exit}."
-  [pool command & {:keys [cwd timeout-ms] :or {cwd "/workspace" timeout-ms 300000}}]
-  (with-pooled* pool (fn [v] (vm/exec v command :cwd cwd :timeout-ms timeout-ms))))
+  "Run a command on the pool's warm VM. Returns {:stdout :stderr :exit}, plus
+  :interrupted? true when an :interrupt atom fired mid-command."
+  [pool command & {:keys [cwd timeout-ms interrupt interrupt-poll-ms]
+                   :or {cwd "/workspace" timeout-ms 300000}}]
+  (with-pooled* pool (fn [v] (vm/exec v command :cwd cwd :timeout-ms timeout-ms
+                                       :interrupt interrupt :interrupt-poll-ms interrupt-poll-ms))))
 
 (defn pool-exec!
   "Like pool-exec but throws on nonzero exit."
