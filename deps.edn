@@ -5,6 +5,6 @@
  :paths ["src"]
  :deps {racklr-dev/jolt-microvm
         {:git/url "https://github.com/racklr-dev/jolt-microvm"
-         :git/sha "e979982adafaf82f15d2ee81f9a50712360b4d6e"}}
+         :git/sha "5f59b211e162890072665d9247f4751a11dd0d7d"}}
 
  :tasks {test "jolt run test/jolt/check_test.clj"}}
