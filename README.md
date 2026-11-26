@@ -61,6 +61,18 @@ Built-in: `:python` (distroless python3), `:python-alpine` (alpine + python3),
 `:project-dir`, `:arch`. `with-session` and `make-pool` take the full
 `vm/start!` opts map (including `:mounts` and `:packages`).
 
+## Desktop sandboxes
+
+`examples/desktop.clj` boots a warm session with a tiny alpine desktop and
+serves it over VNC, using `jolt.microvm.desktop` from jolt-microvm. Set
+`profile` to `:x11` for Xvfb + x11vnc or `:wayland` for sway + wayvnc, then
+open the printed url in a VNC client.
+
+```sh
+sudo -u $USER --preserve-env env JOLT_BIN=/path/to/jolt \
+  /path/to/jolt run examples/desktop.clj
+```
+
 ## License
 
 EPL-2.0
